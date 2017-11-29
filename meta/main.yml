@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: Rahul Sharma
+  description: Install, Configure and Starts, NTP
+  license: MIT
+  min_ansible_version: 1.2
+
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  categories:
+  - system
+dependencies: []

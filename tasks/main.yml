@@ -1,0 +1,22 @@
+- block:
+  - name: REMOVE EXISTING /etc/localtime
+    file:
+        path: /etc/localtime
+        state: absent
+  - name: CREATE FILE /etc/localtime
+    file: path=/etc/localtime state=touch
+
+  - name: SET TIMEZONE FROM VARS
+    file: src=/usr/share/zoneinfo/{{ntp_zone}}/{{ntp_city}}  dest=/etc/localtime state=link force=yes
+
+  - name: ENSURE NTP IS INSTALLED
+    package: name=ntp state=installed
+
+  - name: ENSURE NTP IS ON BOOT & RUNNING DEBIAN SYSTEM.
+    service: name=ntp state=started enabled=yes
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: ENSURE NTP IS ON BOOT & RUNNING, RPM SYSTEM.
+    service: name=ntpd state=started enabled=yes
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  become: true
