@@ -40,7 +40,8 @@ MIT
 
 Author Information
 ------------------
-###Rahul Sharma
+Rahul Sharma
+------------------
 
 [Github](https://github.com/Rahulsharma0810)
 
