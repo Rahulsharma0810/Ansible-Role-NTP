@@ -20,7 +20,7 @@ Example Playbook
 ```
     - hosts: YOUR-HOST-OR-GROUP
       roles:
-    	- NTP
+    	- Ansible-Role-NTP
 ```
 
 Deploying
